@@ -34,8 +34,14 @@
     <dependency>
         <groupId>si.fri.prpo</groupId>
         <artifactId>prpo-vaje-vmesniki</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
         <type>pom</type>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>si.fri.prpo</groupId>
+        <artifactId>prpo-vaje-jpa</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>jar</type>
         <scope>provided</scope>
     </dependency>
   </dependencies>

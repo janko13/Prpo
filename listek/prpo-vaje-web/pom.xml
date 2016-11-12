@@ -12,14 +12,36 @@
   	<dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
-        <version>7.0</version>
         <scope>provided</scope>
     </dependency>
   	<dependency>
 	    <groupId>si.fri.prpo</groupId>
 	    <artifactId>prpo-vaje-jdbc</artifactId>
+	    <type>jar</type>
+	    <scope>provided</scope>
+    </dependency>
+    <dependency>
+	    <groupId>si.fri.prpo</groupId>
+	    <artifactId>prpo-vaje-jpa</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
 	    <type>jar</type>
+	    <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>si.fri.prpo</groupId>
+        <artifactId>prpo-vaje-vmesniki-ejb</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>si.fri.prpo</groupId>
+        <artifactId>prpo-vaje-vmesniki</artifactId>
+        <type>pom</type>
+    </dependency>
+    <dependency>
+        <groupId>si.fri.prpo</groupId>
+        <artifactId>prpo-vaje-storitve</artifactId>
+        <type>ejb</type>
     </dependency>
   </dependencies>
   

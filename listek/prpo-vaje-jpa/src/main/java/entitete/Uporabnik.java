@@ -12,12 +12,17 @@ import java.util.List;
  */
 @Entity
 @Table(name="\"Uporabnik\"")
-@NamedQuery(name="Uporabnik.findAll", query="SELECT u FROM Uporabnik u")
+@NamedQueries({
+	@NamedQuery(name="Uporabnik.findAll", query="SELECT u FROM Uporabnik u"),
+	//@NamedQuery(name="Uporabnik.dodaj", );
+})
+
 public class Uporabnik implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "id")
 	private Long id;
 
 	private String email;
@@ -32,7 +37,7 @@ public class Uporabnik implements Serializable {
 	private Date rojstvo;
 
 	//bi-directional many-to-one association to Listek
-	@OneToMany(mappedBy="uporabnik")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="uporabnik", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Listek> listeks;
 
 	public Uporabnik() {
@@ -106,6 +111,10 @@ public class Uporabnik implements Serializable {
 		listek.setUporabnik(null);
 
 		return listek;
+	}
+	
+	public String toString() {
+		return id + " " + ime + " " + priimek + " " + naslov + " " + email + " " + rojstvo.toString();
 	}
 
 }

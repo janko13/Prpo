@@ -6,25 +6,18 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>prpo-vaje-vmesniki-ejb</artifactId>
-  <packaging>ejb</packaging>
+  <packaging>jar</packaging>
   
   <dependencies>
-  	<dependency>
-        <groupId>si.fri.prpo</groupId>
-        <artifactId>prpo-vaje-vmesniki</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <type>pom</type>
-    </dependency>
 	<dependency>
       <groupId>si.fri.prpo</groupId>
-      <artifactId>prpo-vaje-ear</artifactId>
+      <artifactId>prpo-vaje-jpa</artifactId>
       <version>0.0.1-SNAPSHOT</version>
-      <type>ear</type>
+      <type>jar</type>
     </dependency>
     <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
-        <version>7.0</version>
         <scope>provided</scope>
     </dependency>
   </dependencies>

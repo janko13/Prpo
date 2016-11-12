@@ -11,21 +11,26 @@ import java.util.List;
  */
 @Entity
 @Table(name="\"Listek\"")
-@NamedQuery(name="Listek.findAll", query="SELECT l FROM Listek l")
+@NamedQueries({
+	@NamedQuery(name="Listek.findAll", query="SELECT l FROM Listek l"),
+	@NamedQuery(name="Listek.findAllProducts", query="SELECT l FROM Listek l")
+})
+
 public class Listek implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name = "id")
 	private Long id;
 
 	//bi-directional many-to-one association to Uporabnik
-	@ManyToOne
-	@JoinColumn(name="user_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id", referencedColumnName="id")
 	private Uporabnik uporabnik;
 
 	//bi-directional many-to-one association to ListekIzdelek
-	@OneToMany(mappedBy="listek")
+	@OneToMany(mappedBy="listek") //, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ListekIzdelek> listekIzdeleks;
 
 	public Listek() {
@@ -69,4 +74,9 @@ public class Listek implements Serializable {
 		return listekIzdelek;
 	}
 
+	@Override
+	public String toString() {
+		return id + " " + uporabnik.getId();
+	}
+	
 }
